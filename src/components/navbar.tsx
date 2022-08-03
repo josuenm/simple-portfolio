@@ -64,8 +64,9 @@ const Navbar = (props: NavbarProps) => {
         flexWrap='wrap'
         alignItems='center'
         justifyContent='space-between'
+        gap={5}
       >
-        <Flex alignItems='center' mr={5}>
+        <Flex alignItems='center' flex={1}>
           <Heading as='h1' size='lg' letterSpacing='tighter'>
             <Logo />
           </Heading>
@@ -80,12 +81,12 @@ const Navbar = (props: NavbarProps) => {
           <LinkItem href='/projects' path={path}>
             Projects
           </LinkItem>
-          <LinkItem href='/projects' path={path}>
+          <LinkItem href='/social' path={path}>
             Social
           </LinkItem>
         </Stack>
 
-        <Box display='flex' flex={1} justifyContent='flex-end'>
+        <Box>
           <ThemeToggleButton />
           <Box ml={2} display={{ base: 'inline-flex', md: 'none' }}>
             <Menu>
