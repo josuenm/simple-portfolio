@@ -1,15 +1,20 @@
+import Section from '@components/section'
+import NextLink from 'next/link'
+import { ChevronRightIcon } from '@chakra-ui/icons'
+import { BioContainer, BioYear } from '@components/bio'
+import { NextPage } from 'next'
 import {
   Box,
+  Button,
   Container,
+  Flex,
   Heading,
   Image,
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-import Section from '@components/section'
-import { NextPage } from 'next'
 
-const page: NextPage = () => {
+const Home: NextPage = () => {
   return (
     <Container>
       <Box
@@ -30,11 +35,10 @@ const page: NextPage = () => {
           <Text as='p'>CactusOutlier (desenvolvedor, info-produtor)</Text>
         </Box>
 
-        <Box
+        <Flex
           flexShrink={0}
           mt={{ base: 4, md: 0 }}
           ml={{ md: 6 }}
-          display='flex'
           justifyContent={{ base: 'center' }}
           alignItems='center'
         >
@@ -47,12 +51,12 @@ const page: NextPage = () => {
             borderRadius='full'
             src='/images/profile-picture.jpg'
           />
-        </Box>
+        </Flex>
       </Box>
 
       <Section delay={0.1}>
         <Heading as='h3' variant='section-title'>
-          Trabalho
+          Sobre mim
         </Heading>
         <Text as='p'>
           Josué é um desenvolvedor full stack que procura sempre evoluir.
@@ -61,9 +65,44 @@ const page: NextPage = () => {
           acabou adiando essa meta para focar em React na web e depois começar
           em React Native 😎.
         </Text>
+
+        <Flex justify='center' paddingY={5}>
+          <NextLink href='/projects'>
+            <Button colorScheme='messenger' rightIcon={<ChevronRightIcon />}>
+              Projetos
+            </Button>
+          </NextLink>
+        </Flex>
+      </Section>
+
+      <Section delay={0.1}>
+        <Heading as='h3' variant='section-title'>
+          Trabalho
+        </Heading>
+        <BioContainer>
+          <BioYear>2021 até agora</BioYear>
+          Trabalhando como Freelancer
+        </BioContainer>
+        <BioContainer>
+          <BioYear>2022 até agora</BioYear>
+          Produtor/vendedor de ebooks
+        </BioContainer>
+      </Section>
+
+      <Section delay={0.1}>
+        <Heading as='h3' variant='section-title'>
+          Gostos
+        </Heading>
+        <Text as='p'>Formula 1, músicas, jogos na nuvem e programar</Text>
+      </Section>
+
+      <Section delay={0.1}>
+        <Heading as='h3' variant='section-title'>
+          Pela internet
+        </Heading>
       </Section>
     </Container>
   )
 }
 
-export default page
+export default Home
