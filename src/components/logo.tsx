@@ -25,7 +25,7 @@ const LogoBox = styled.span`
 `
 
 const Logo = () => {
-  const pathLogo = `/images/cactus-${useColorModeValue('dark', 'light')}.svg`
+  const pathLogo = `/penguin-${useColorModeValue('dark', 'light')}.svg`
 
   return (
     <Link href='/'>
