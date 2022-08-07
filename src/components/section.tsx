@@ -9,6 +9,9 @@ interface SectionProps {
 const StyledDiv = chakra(motion.div, {
   shouldForwardsProp: (prop: string) => {
     return shouldForwardProp(prop) || prop === 'transition'
+  },
+  baseStyle: {
+    marginTop: 5
   }
 })
 
