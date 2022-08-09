@@ -1,8 +1,10 @@
 import Section from '@components/section'
 import NextLink from 'next/link'
+import Layout from '@components/layouts/layout'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioContainer, BioYear } from '@components/bio'
 import { NextPage } from 'next'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
 import {
   Box,
   Button,
@@ -11,9 +13,12 @@ import {
   Heading,
   Image,
   Text,
-  useColorModeValue
+  useColorModeValue,
+  List,
+  ListItem,
+  Link,
+  Icon
 } from '@chakra-ui/react'
-import Layout from '@components/layouts/layout'
 
 const Home: NextPage = () => {
   return (
@@ -27,7 +32,7 @@ const Home: NextPage = () => {
           mb={6}
         >
           <Text as='span'>
-            Olá, sou um desenvolvedor Full Stack de Jacareí, SP - Brasil
+            'Olá, sou um desenvolvedor Full Stack de Jacareí, SP - Brasil'
           </Text>
         </Box>
 
@@ -79,7 +84,7 @@ const Home: NextPage = () => {
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
-            Trabalho
+            Profissionalmente
           </Heading>
           <BioContainer>
             <BioYear>2021 até agora</BioYear>
@@ -93,15 +98,40 @@ const Home: NextPage = () => {
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
-            Gostos
+            Eu ❤
           </Heading>
-          <Text as='p'>Formula 1, músicas, jogos na nuvem e programar</Text>
+          <Text as='p'>Formula 1, jogos na nuvem e programar</Text>
         </Section>
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
             Pela internet
           </Heading>
+
+          <List>
+            <ListItem>
+              <Link href='https://www.github.com/josuenm' target='_blank'>
+                <Button
+                  variant='ghost'
+                  colorScheme='teal'
+                  leftIcon={<Icon as={IoLogoGithub} />}
+                >
+                  @josuenm
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href='https://www.linkedin.com/in/josuenm/' target='_blank'>
+                <Button
+                  variant='ghost'
+                  colorScheme='teal'
+                  leftIcon={<Icon as={IoLogoLinkedin} />}
+                >
+                  @josuenm
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
         </Section>
       </Container>
     </Layout>
