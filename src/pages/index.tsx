@@ -3,8 +3,10 @@ import NextLink from 'next/link'
 import Layout from '@components/layouts/layout'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioContainer, BioYear } from '@components/bio'
-import { NextPage } from 'next'
+import { GetStaticPropsContext, NextPage, GetStaticProps } from 'next'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 import {
   Box,
   Button,
@@ -20,7 +22,23 @@ import {
   Icon
 } from '@chakra-ui/react'
 
+export const getStaticProps: GetStaticProps = async ({
+  locale
+}: GetStaticPropsContext) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, [
+        'home',
+        'header',
+        'footer'
+      ]))
+    }
+  }
+}
+
 const Home: NextPage = () => {
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <Container>
@@ -31,15 +49,13 @@ const Home: NextPage = () => {
           p={1.5}
           mb={6}
         >
-          <Text as='span'>
-            'Olá, sou um desenvolvedor Full Stack de Jacareí, SP - Brasil'
-          </Text>
+          <Text as='span'>{t('home:presentation_msg')}</Text>
         </Box>
 
         <Box display={{ md: 'flex' }}>
           <Box flexGrow={1}>
             <Heading as='h2'>Josué Mendonça</Heading>
-            <Text as='p'>Outlier (desenvolvedor full stack)</Text>
+            <Text as='p'>{t('home:area_msg')}</Text>
           </Box>
 
           <Flex
@@ -63,20 +79,14 @@ const Home: NextPage = () => {
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
-            Sobre mim
+            {t('home:about-me_title')}
           </Heading>
-          <Text as='p'>
-            Josué é um desenvolvedor full stack que procura sempre evoluir.
-            Atualmente esta dando um foco maior no aprendizado do back-end, mas
-            sua grande paixão no começo foi querer desenvolver para mobile mas
-            acabou adiando essa meta para focar em React na web e depois começar
-            em React Native 😎.
-          </Text>
+          <Text as='p'>{t('home:about-me_msg')} 😎.</Text>
 
           <Flex justify='center' pt={4}>
             <NextLink href='/works'>
               <Button colorScheme='teal' rightIcon={<ChevronRightIcon />}>
-                Trabalhos
+                {t('home:work_button')}
               </Button>
             </NextLink>
           </Flex>
@@ -84,28 +94,24 @@ const Home: NextPage = () => {
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
-            Profissionalmente
+            {t('home:professionally_title')}
           </Heading>
           <BioContainer>
-            <BioYear>2021 até agora</BioYear>
-            Trabalhando como Freelancer
-          </BioContainer>
-          <BioContainer>
-            <BioYear>2022 até agora</BioYear>
-            Produtor/vendedor de ebooks
+            <BioYear>2021 {t('home:yet_msg')}</BioYear>
+            {t('home:first-work_msg')}
           </BioContainer>
         </Section>
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
-            Eu ❤
+            {t('home:ilove_title')} ❤
           </Heading>
-          <Text as='p'>Formula 1, jogos na nuvem e programar</Text>
+          <Text as='p'>{t('home:ilove_msg')}</Text>
         </Section>
 
         <Section delay={0.1}>
           <Heading as='h3' variant='section-title'>
-            Pela internet
+            {t('home:on-the-web_title')}
           </Heading>
 
           <List>
