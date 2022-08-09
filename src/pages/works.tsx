@@ -5,7 +5,7 @@ import Layout from '@components/layouts/layout'
 import Section from '@components/section'
 
 const Works: NextPage = () => (
-  <Layout title='Projects'>
+  <Layout title='Trabalhos'>
     <Container>
       <Heading as='h3' fontSize={20} mb={2}>
         Projetos

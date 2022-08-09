@@ -6,7 +6,7 @@ import P from '@components/paragraph'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const NetflixClone: NextPage = () => (
-  <Layout>
+  <Layout title='Netflix Clone'>
     <Container>
       <Title>
         Netflix Clone <Badge>2021</Badge>

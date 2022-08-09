@@ -6,7 +6,7 @@ import Layout from '@components/layouts/layout'
 import P from '@components/paragraph'
 
 const LinkedinClone: NextPage = () => (
-  <Layout>
+  <Layout title='Linkedin Clone'>
     <Container>
       <Title>
         Linkedin Clone <Badge>2021</Badge>

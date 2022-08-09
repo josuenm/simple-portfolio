@@ -6,7 +6,7 @@ import { NextPage } from 'next'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const PurpleNotes: NextPage = () => (
-  <Layout>
+  <Layout title='Purple Notes'>
     <Container>
       <Title>
         Purple Notes <Badge>2021 - 2022</Badge>
