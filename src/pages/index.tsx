@@ -28,6 +28,7 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [
+        'not_found',
         'home',
         'header',
         'footer'
@@ -90,6 +91,16 @@ const Home: NextPage = () => {
               </Button>
             </NextLink>
           </Flex>
+        </Section>
+
+        <Section delay={0.1}>
+          <Heading as='h3' variant='section-title'>
+            {t('home:my-stack_title')}
+          </Heading>
+          <Text as='p'>
+            HTML, CSS, SASS, Bootstrap, Javascript, Typescript, React.js,
+            Next.js, ChakraUI, Node.js, Express, MongoDB
+          </Text>
         </Section>
 
         <Section delay={0.1}>
