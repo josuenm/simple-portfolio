@@ -1,5 +1,8 @@
+import Layout from '@components/layouts/layout'
 import NextLink from 'next/link'
-import { NextPage } from 'next'
+import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 import {
   Button,
   Container,
@@ -8,22 +11,42 @@ import {
   Heading,
   Text
 } from '@chakra-ui/react'
-import Layout from '@components/layouts/layout'
 
-const NotFound: NextPage = () => (
-  <Layout title='Não encontrado'>
-    <Container>
-      <Heading>Não encontrado</Heading>
-      <Text>A página que você esta procurando não foi encontrada</Text>
-      <Divider mt={4} mb={4} />
+export const getStaticProps: GetStaticProps = async ({
+  locale
+}: GetStaticPropsContext) => {
+  const projects = ['purple_notes', 'linkedin_clone', 'netflix_clone']
 
-      <Flex justify='center'>
-        <NextLink href='/'>
-          <Button colorScheme='teal'>Retornar para o início</Button>
-        </NextLink>
-      </Flex>
-    </Container>
-  </Layout>
-)
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, [
+        'not_found',
+        'header',
+        'footer',
+        ...projects
+      ]))
+    }
+  }
+}
+
+const NotFound: NextPage = () => {
+  const { t } = useTranslation()
+
+  return (
+    <Layout title={t('not_found:title')}>
+      <Container>
+        <Heading>{t('not_found:title')}</Heading>
+        <Text>{t('not_found:msg')}</Text>
+        <Divider mt={4} mb={4} />
+
+        <Flex justify='center'>
+          <NextLink href='/'>
+            <Button colorScheme='teal'>{t('not_found:button_title')}</Button>
+          </NextLink>
+        </Flex>
+      </Container>
+    </Layout>
+  )
+}
 
 export default NotFound
