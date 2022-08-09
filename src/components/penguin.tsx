@@ -18,13 +18,11 @@ const Image = styled(NextImage)`
 `
 
 const Penguin = () => (
-  <Box p='10'>
+  <Box m='20px auto' position='relative' w={[150, 200, 250]} h={[90, 150, 150]}>
     <Image
       src={`/penguin-${useColorModeValue('dark', 'light')}.svg`}
       alt='Penguin'
-      layout='responsive'
-      width='100%'
-      height={30}
+      layout='fill'
     />
   </Box>
 )
