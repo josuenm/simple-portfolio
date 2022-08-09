@@ -1,4 +1,8 @@
+import NextLink from 'next/link'
+import Logo from './logo'
+import ThemeToggleButton from './theme-toggle-button'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import { useTranslation } from 'next-i18next'
 import {
   Box,
   Container,
@@ -13,9 +17,6 @@ import {
   Stack,
   useColorModeValue
 } from '@chakra-ui/react'
-import NextLink from 'next/link'
-import Logo from './logo'
-import ThemeToggleButton from './theme-toggle-button'
 
 interface LinkItemProps {
   href: string
@@ -47,6 +48,7 @@ const LinkItem = ({ href, path, children }: LinkItemProps) => {
 
 const Navbar = (props: NavbarProps) => {
   const { path } = props
+  const { t } = useTranslation()
 
   return (
     <Box
@@ -81,7 +83,7 @@ const Navbar = (props: NavbarProps) => {
           mt={{ base: 4, md: 0 }}
         >
           <LinkItem href='/works' path={path}>
-            Trabalhos
+            {t('header:works_link')}
           </LinkItem>
           <Link
             color={useColorModeValue('gray.900', 'whiteAlpha.900')}
@@ -102,14 +104,14 @@ const Navbar = (props: NavbarProps) => {
                 variant='outline'
                 borderWidth={2}
                 borderColor={useColorModeValue('#ddd', '#454545')}
-                arial-label='Opções'
+                arial-label={t('header:menu-button_alt')}
               />
               <MenuList>
                 <NextLink href='/' passHref>
-                  <MenuItem as={Link}>Sobre mim</MenuItem>
+                  <MenuItem as={Link}>{t('header:about-me_link')}</MenuItem>
                 </NextLink>
                 <NextLink href='/projects' passHref>
-                  <MenuItem as={Link}>Projetos</MenuItem>
+                  <MenuItem as={Link}>{t('works_link')}</MenuItem>
                 </NextLink>
                 <Link
                   color={useColorModeValue('gray.900', 'whiteAlpha.900')}

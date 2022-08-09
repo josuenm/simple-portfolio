@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import styled from '@emotion/styled'
-import { Text, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
+import { Text, useColorModeValue } from '@chakra-ui/react'
+import { useTranslation } from 'next-i18next'
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -27,6 +28,8 @@ const LogoBox = styled.span`
 const Logo = () => {
   const pathLogo = `/penguin-${useColorModeValue('dark', 'light')}.svg`
 
+  const { t } = useTranslation()
+
   return (
     <Link href='/'>
       <LogoBox>
@@ -35,7 +38,7 @@ const Logo = () => {
           layout='fixed'
           width={20}
           height={20}
-          alt='logo'
+          alt={t('header:logo_alt')}
         />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
