@@ -29,7 +29,7 @@ const NetflixClone: NextPage = () => {
     <Layout title={t('linkedin_clone:title')}>
       <Container>
         <Title>
-          {t('linkedin_clone:title')} <Badge>2021</Badge>
+          {t('linkedin_clone:title')} <Badge mt={[2.5, 0, 0]}>2021</Badge>
         </Title>
         <P>{t('linkedin_clone:description')}</P>
         <List ml={4} my={4}>

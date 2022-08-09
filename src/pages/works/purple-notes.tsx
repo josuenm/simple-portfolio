@@ -29,7 +29,7 @@ const PurpleNotes: NextPage = () => {
     <Layout title={t('purple_notes:title')}>
       <Container>
         <Title>
-          {t('purple_notes:title')} <Badge>2021 - 2022</Badge>
+          {t('purple_notes:title')} <Badge mt={[2.5, 0, 0]}>2021 - 2022</Badge>
         </Title>
         <P>{t('purple_notes:description')}</P>
         <List ml={4} my={4}>
