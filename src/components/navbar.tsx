@@ -83,18 +83,13 @@ const Navbar = (props: NavbarProps) => {
           <LinkItem href='/works' path={path}>
             Trabalhos
           </LinkItem>
-          <LinkItem href='/social' path={path}>
-            Social
-          </LinkItem>
-          <NextLink href=''>
-            <Link
-              color={useColorModeValue('gray.900', 'whiteAlpha.900')}
-              href='https://github.com/josuenm'
-              target='_blank'
-            >
-              Github
-            </Link>
-          </NextLink>
+          <Link
+            color={useColorModeValue('gray.900', 'whiteAlpha.900')}
+            href='https://github.com/josuenm'
+            target='_blank'
+          >
+            Github
+          </Link>
         </Stack>
 
         <Flex align='center'>
@@ -116,9 +111,13 @@ const Navbar = (props: NavbarProps) => {
                 <NextLink href='/projects' passHref>
                   <MenuItem as={Link}>Projetos</MenuItem>
                 </NextLink>
-                <NextLink href='https://github.com/josuenm' passHref>
-                  <MenuItem as={Link}>Github</MenuItem>
-                </NextLink>
+                <Link
+                  color={useColorModeValue('gray.900', 'whiteAlpha.900')}
+                  href='https://github.com/josuenm'
+                  target='_blank'
+                >
+                  <MenuItem>Github</MenuItem>
+                </Link>
               </MenuList>
             </Menu>
           </Box>
