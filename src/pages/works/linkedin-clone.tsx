@@ -1,40 +1,61 @@
 import { Badge, Container, Link, List, ListItem } from '@chakra-ui/react'
 import { Meta, Title, WorkImage } from '@components/work'
-import { NextPage } from 'next'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
 import Layout from '@components/layouts/layout'
 import P from '@components/paragraph'
+import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 
-const LinkedinClone: NextPage = () => (
-  <Layout title='Linkedin Clone'>
-    <Container>
-      <Title>
-        Linkedin Clone <Badge>2021</Badge>
-      </Title>
-      <P>Essa aplicação é um clone do Linkedin, foi usado React e firebase</P>
-      <List ml={4} my={4}>
-        <ListItem>
-          <Meta>Website</Meta>
-          <Link href=''>
-            https://linkedin-clone-6deba.web.app <ExternalLinkIcon mx={2} />
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Meta>Plataforma</Meta>
-          <span>Web</span>
-        </ListItem>
-        <ListItem>
-          <Meta>Stack</Meta>
-          <span>React, Javascript, SASS, Firebase</span>
-        </ListItem>
-      </List>
+export const getStaticProps: GetStaticProps = async ({
+  locale
+}: GetStaticPropsContext) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, [
+        'works',
+        'linkedin_clone',
+        'header',
+        'footer'
+      ]))
+    }
+  }
+}
 
-      <WorkImage
-        src='/images/works/linkedin-clone_01.png'
-        alt='Linkedin Clone'
-      />
-    </Container>
-  </Layout>
-)
+const LinkedinClone: NextPage = () => {
+  const { t } = useTranslation()
+
+  return (
+    <Layout title={t('linkedin_clone:title')}>
+      <Container>
+        <Title>
+          {t('linkedin_clone:title')} <Badge>2021</Badge>
+        </Title>
+        <P>{t('linkedin_clone:description')}</P>
+        <List ml={4} my={4}>
+          <ListItem>
+            <Meta>Website</Meta>
+            <Link href='https://linkedin-clone-6deba.web.app'>
+              https://linkedin-clone-6deba.web.app <ExternalLinkIcon mx={2} />
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Meta>{t('works:platform_title')}</Meta>
+            <span>Web</span>
+          </ListItem>
+          <ListItem>
+            <Meta>Stack</Meta>
+            <span>React, Javascript, SASS, Firebase</span>
+          </ListItem>
+        </List>
+
+        <WorkImage
+          src='/images/works/linkedin-clone_01.png'
+          alt='Linkedin Clone'
+        />
+      </Container>
+    </Layout>
+  )
+}
 
 export default LinkedinClone
