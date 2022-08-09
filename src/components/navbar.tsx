@@ -17,6 +17,7 @@ import {
   Stack,
   useColorModeValue
 } from '@chakra-ui/react'
+import LanguageToggleButton from './language-toggle-button'
 
 interface LinkItemProps {
   href: string
@@ -95,7 +96,10 @@ const Navbar = (props: NavbarProps) => {
         </Stack>
 
         <Flex align='center'>
-          <ThemeToggleButton />
+          <Flex gap={[2, 4, 4]}>
+            <LanguageToggleButton />
+            <ThemeToggleButton />
+          </Flex>
           <Box ml={2} display={{ base: 'inline-flex', md: 'none' }}>
             <Menu>
               <MenuButton
@@ -110,8 +114,8 @@ const Navbar = (props: NavbarProps) => {
                 <NextLink href='/' passHref>
                   <MenuItem as={Link}>{t('header:about-me_link')}</MenuItem>
                 </NextLink>
-                <NextLink href='/projects' passHref>
-                  <MenuItem as={Link}>{t('works_link')}</MenuItem>
+                <NextLink href='/works' passHref>
+                  <MenuItem as={Link}>{t('header:works_link')}</MenuItem>
                 </NextLink>
                 <Link
                   color={useColorModeValue('gray.900', 'whiteAlpha.900')}
