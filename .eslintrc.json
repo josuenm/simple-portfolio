@@ -16,8 +16,7 @@
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": "./tsconfig.eslint.json"
+    "sourceType": "module"
   },
   "plugins": ["prettier", "react", "@typescript-eslint"],
   "rules": {
