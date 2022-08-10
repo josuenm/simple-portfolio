@@ -24,7 +24,6 @@ export const getStaticProps: GetStaticProps = async ({
 
 const PurpleNotes: NextPage = () => {
   const { t } = useTranslation()
-
   return (
     <Layout title={t('purple_notes:title')}>
       <Container>
@@ -35,13 +34,30 @@ const PurpleNotes: NextPage = () => {
         <List ml={4} my={4}>
           <ListItem>
             <Meta>Website</Meta>
-            <Link href='https://purplenotes.vercel.app'>
+            <Link href='https://purplenotes.vercel.app' target='_blank'>
               https://purplenotes.vercel.app <ExternalLinkIcon mx={2} />
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Meta>{t('works:repository_title')}</Meta>
+            <Link
+              href='https://github.com/josuenm/purplenotes-frontend'
+              target='_blank'
+            >
+              https://github.com/josuenm/purplenotes-frontend
+              <ExternalLinkIcon mx={2} />
             </Link>
           </ListItem>
           <ListItem>
             <Meta>{t('works:platform_title')}</Meta>
             <span>Web</span>
+          </ListItem>
+          <ListItem>
+            <Meta>Stack</Meta>
+            <span>
+              React, Javascript, Styled-Components, Context-API, Node.js,
+              Express, MongoDB
+            </span>
           </ListItem>
         </List>
 
