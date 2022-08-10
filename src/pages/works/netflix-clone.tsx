@@ -35,8 +35,15 @@ const NetflixClone: NextPage = () => {
         <List ml={4} my={4}>
           <ListItem>
             <Meta>Website</Meta>
-            <Link href='https://josuenm.github.io/netflix'>
+            <Link href='https://josuenm.github.io/netflix' target='_blank'>
               https://josuenm.github.io/netflix <ExternalLinkIcon mx={2} />
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Meta>{t('works:repository_title')}</Meta>
+            <Link href='https://github.com/josuenm/netflix' target='_blank'>
+              https://github.com/josuenm/netflix
+              <ExternalLinkIcon mx={2} />
             </Link>
           </ListItem>
           <ListItem>

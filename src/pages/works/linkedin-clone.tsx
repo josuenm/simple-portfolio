@@ -35,8 +35,15 @@ const LinkedinClone: NextPage = () => {
         <List ml={4} my={4}>
           <ListItem>
             <Meta>Website</Meta>
-            <Link href='https://linkedin-clone-6deba.web.app'>
+            <Link href='https://linkedin-clone-6deba.web.app' target='_blank'>
               https://linkedin-clone-6deba.web.app <ExternalLinkIcon mx={2} />
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Meta>{t('works:repository_title')}</Meta>
+            <Link href='https://github.com/josuenm/linkedin' target='_blank'>
+              https://github.com/josuenm/linkedin
+              <ExternalLinkIcon mx={2} />
             </Link>
           </ListItem>
           <ListItem>
@@ -51,7 +58,7 @@ const LinkedinClone: NextPage = () => {
 
         <WorkImage
           src='/images/works/linkedin-clone_01.png'
-          alt='Linkedin Clone'
+          alt={t('linkedin_clone:title')}
         />
       </Container>
     </Layout>
