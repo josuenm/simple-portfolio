@@ -4,7 +4,7 @@ import Layout from '@components/layouts/layout'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioContainer, BioYear } from '@components/bio'
 import { GetStaticPropsContext, NextPage, GetStaticProps } from 'next'
-import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
+import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from 'react-icons/io'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import {
@@ -156,6 +156,17 @@ const Home: NextPage = () => {
                   leftIcon={<Icon as={IoLogoLinkedin} />}
                 >
                   @josuenm
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href='mailto:direct.josue@gmail.com' target='_blank'>
+                <Button
+                  variant='ghost'
+                  colorScheme='teal'
+                  leftIcon={<Icon as={IoMdMail} />}
+                >
+                  @direct.josue
                 </Button>
               </Link>
             </ListItem>
