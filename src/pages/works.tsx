@@ -1,19 +1,37 @@
 import Layout from '@components/layouts/layout'
 import Section from '@components/section'
-import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
+import listOfWorks from '@lib/works/listOfWorks'
+import { Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react'
 import { WorkGridItem } from '@components/grid-item'
 import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
+interface ProjectProps {
+  id: string
+  title: string
+  short_description: string
+  thumb_path: string
+}
+
 export const getStaticProps: GetStaticProps = async ({
   locale
 }: GetStaticPropsContext) => {
-  const projects = ['purple_notes', 'linkedin_clone', 'netflix_clone']
+  const projects = [
+    'spotify_homepage_clone',
+    'pretty_form',
+    'purple_notes',
+    'linkedin_clone',
+    'netflix_clone',
+    'magic_molds',
+    'mold_pack',
+    'simply_amigurumi'
+  ]
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [
+        'home',
         'works',
         'header',
         'footer',
@@ -28,41 +46,29 @@ const Works: NextPage = () => {
 
   return (
     <Layout title={t('works:title')}>
-      <Container>
-        <Heading as='h3' fontSize={20} mb={2}>
-          {t('works:personal-projects_title')}
-        </Heading>
+      <Flex direction='column' gap={20}>
+        {listOfWorks.map(project => (
+          <Container key={project.title}>
+            <Heading as='h3' fontSize={20} mb={2}>
+              {t(project.title)}
+            </Heading>
 
-        <SimpleGrid columns={[1, 1, 2]} gap={6}>
-          <Section>
-            <WorkGridItem
-              title={t('purple_notes:title')}
-              id='purple-notes'
-              thumbnail='/images/purplenotes-thumb.jpg'
-            >
-              {t('purple_notes:short_description')}
-            </WorkGridItem>
-          </Section>
-          <Section>
-            <WorkGridItem
-              title={t('linkedin_clone:title')}
-              id='linkedin-clone'
-              thumbnail='/images/linkedinclone-thumb.jpg'
-            >
-              {t('linkedin_clone:short_description')}
-            </WorkGridItem>
-          </Section>
-          <Section>
-            <WorkGridItem
-              title={t('netflix_clone:title')}
-              id='netflix-clone'
-              thumbnail='/images/netflixclone-thumb.jpg'
-            >
-              {t('netflix_clone:short_description')}
-            </WorkGridItem>
-          </Section>
-        </SimpleGrid>
-      </Container>
+            <SimpleGrid columns={[1, 1, 2]} gap={6}>
+              {project.projects.map((project: ProjectProps) => (
+                <Section key={project.id}>
+                  <WorkGridItem
+                    title={t(project.title)}
+                    id={project.id}
+                    thumbnail={project.thumb_path}
+                  >
+                    {t(project.short_description)}
+                  </WorkGridItem>
+                </Section>
+              ))}
+            </SimpleGrid>
+          </Container>
+        ))}
+      </Flex>
     </Layout>
   )
 }
