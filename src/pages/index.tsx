@@ -25,13 +25,24 @@ import {
 export const getStaticProps: GetStaticProps = async ({
   locale
 }: GetStaticPropsContext) => {
+  const projects = [
+    'purple_notes',
+    'linkedin_clone',
+    'netflix_clone',
+    'magic_molds',
+    'mold_pack',
+    'simply_amigurumi'
+  ]
+
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [
         'not_found',
         'home',
+        'works',
         'header',
-        'footer'
+        'footer',
+        ...projects
       ]))
     }
   }
