@@ -1,4 +1,6 @@
 import { personalProjects } from './personal'
 import { freelancerProjects } from './freelancer'
 
-export default [personalProjects, freelancerProjects]
+const listOfWorks = [personalProjects, freelancerProjects]
+
+export default listOfWorks
