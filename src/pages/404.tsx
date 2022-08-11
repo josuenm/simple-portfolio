@@ -1,4 +1,4 @@
-import Layout from '@components/layouts/layout'
+import Layout from 'components/layouts/layout'
 import NextLink from 'next/link'
 import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
