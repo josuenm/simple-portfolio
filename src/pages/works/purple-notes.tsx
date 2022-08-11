@@ -1,7 +1,7 @@
-import Layout from 'src/components/layouts/layout'
-import P from 'src/components/paragraph'
+import Layout from '@components/layouts/layout'
+import P from '@components/paragraph'
 import { Badge, Container, Link, List, ListItem } from '@chakra-ui/react'
-import { Meta, Title, WorkImage } from 'src/components/work'
+import { Meta, Title, WorkImage } from '@components/work'
 import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -55,7 +55,7 @@ const PurpleNotes: NextPage = () => {
           <ListItem>
             <Meta>Stack</Meta>
             <span>
-              React, Javascript, Styled-src/components, Context-API, Node.js,
+              React, Javascript, Styled-@components, Context-API, Node.js,
               Express, MongoDB
             </span>
           </ListItem>
