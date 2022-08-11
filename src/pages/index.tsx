@@ -85,6 +85,7 @@ const Home: NextPage = () => {
               display='inline-block'
               borderRadius='full'
               src='/images/profile-picture.jpg'
+              alt='Profile picture'
             />
           </Flex>
         </Box>
