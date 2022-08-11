@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Navbar from 'components/navbar'
-import Penguin from 'components/penguin'
+import Navbar from 'src/components/navbar'
+import Penguin from 'src/components/penguin'
 import { Box, Container, Text, useColorModeValue } from '@chakra-ui/react'
 import { NextRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
