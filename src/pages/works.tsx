@@ -1,11 +1,11 @@
+import { Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react'
+import { WorkGridItem } from '@components/grid-item'
 import Layout from '@components/layouts/layout'
 import Section from '@components/section'
 import listOfWorks from '@lib/works/listOfWorks'
-import { Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react'
-import { WorkGridItem } from '@components/grid-item'
 import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface ProjectProps {
   id: string
