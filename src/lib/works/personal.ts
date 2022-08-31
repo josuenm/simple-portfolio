@@ -8,6 +8,12 @@ export const personalProjects = {
       thumb_path: '/images/purplenotes-thumb.jpg'
     },
     {
+      id: 'pretty-form',
+      title: 'pretty_form:title',
+      short_description: 'pretty_form:short_description',
+      thumb_path: '/images/pretty-form-thumb.jpg'
+    },
+    {
       id: 'linkedin-clone',
       title: 'linkedin_clone:title',
       short_description: 'linkedin_clone:short_description',
@@ -18,12 +24,6 @@ export const personalProjects = {
       title: 'netflix_clone:title',
       short_description: 'netflix_clone:short_description',
       thumb_path: '/images/netflixclone-thumb.jpg'
-    },
-    {
-      id: 'pretty-form',
-      title: 'pretty_form:title',
-      short_description: 'pretty_form:short_description',
-      thumb_path: '/images/pretty-form-thumb.jpg'
     },
     {
       id: 'spotify-homepage-clone',
