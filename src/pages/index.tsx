@@ -1,26 +1,28 @@
-import Section from '@components/section'
-import NextLink from 'next/link'
-import Layout from '@components/layouts/layout'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { BioContainer, BioYear } from '@components/bio'
-import { GetStaticPropsContext, NextPage, GetStaticProps } from 'next'
-import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from 'react-icons/io'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
+
 import {
   Box,
   Button,
   Container,
   Flex,
   Heading,
+  Icon,
   Image,
-  Text,
-  useColorModeValue,
+  Link,
   List,
   ListItem,
-  Link,
-  Icon
+  Text,
+  useColorModeValue
 } from '@chakra-ui/react'
+import { BioContainer, BioYear } from '@components/bio'
+import Layout from '@components/layouts/layout'
+import Section from '@components/section'
+import { GetStaticProps, GetStaticPropsContext, NextPage } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import NextLink from 'next/link'
+import { AiFillFilePdf } from 'react-icons/ai'
+import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from 'react-icons/io'
 
 export const getStaticProps: GetStaticProps = async ({
   locale
@@ -168,6 +170,17 @@ const Home: NextPage = () => {
                   leftIcon={<Icon as={IoMdMail} />}
                 >
                   @direct.josue
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href='/resume.pdf' target='_blank'>
+                <Button
+                  variant='ghost'
+                  colorScheme='teal'
+                  leftIcon={<Icon as={AiFillFilePdf} />}
+                >
+                  {t('home:on-the-web_cv')}
                 </Button>
               </Link>
             </ListItem>
